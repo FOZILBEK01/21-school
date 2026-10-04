@@ -4,6 +4,7 @@ import {
   Clock, ShieldCheck, Copy, Check, ArrowRight, Sparkles 
 } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolData';
+import { SmartImage } from './SmartImage';
 
 interface HeroVizitkaProps {
   onOpenQr: () => void;
@@ -150,16 +151,15 @@ export const HeroVizitka: React.FC<HeroVizitkaProps> = ({ onOpenQr }) => {
                 
                 {/* School Exterior Image */}
                 <div className="relative aspect-[16/10] sm:aspect-[16/11] overflow-hidden bg-slate-800">
-                  <img
-                    src="/src/assets/images/school_building_exterior_1791125440317.jpg"
+                  <SmartImage
+                    src="/images/building.jpg"
                     alt="Olmaliq 21-maktab binosi"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent pointer-events-none" />
                   
                   {/* Floating Tag */}
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-lg bg-slate-900/80 backdrop-blur-md border border-slate-700/60 text-xs font-medium text-slate-200 flex items-center gap-1.5">
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-lg bg-slate-900/80 backdrop-blur-md border border-slate-700/60 text-xs font-medium text-slate-200 flex items-center gap-1.5 pointer-events-none z-20">
                     <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                     <span>2026/2027 O'quv yili</span>
                   </div>

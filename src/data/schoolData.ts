@@ -38,7 +38,7 @@ export const TEACHERS: Teacher[] = [
     categoryLabel: "Rahbariyat / Aniq fanlar",
     experience: 24,
     degree: "Oliy toifali pedagog, Xalq ta'limi a'lochisi",
-    avatar: "/src/assets/images/school_director_portrait_1791125475071.jpg",
+    avatar: "/images/director.jpg",
     bio: "24 yillik ilmiy va pedagogik tajribaga ega. Bir nechta xalqaro ta'lim loyihalari koordinatori. Qabul vaqti: Chorshanba va Juma 14:00 – 17:00.",
     achievements: [
       "Xalq ta'limi a'lochisi ko'krak nishoni (2019)",
@@ -387,7 +387,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Maktabimizning zamonaviy bosh binosi",
     category: "bino",
     categoryLabel: "Maktab binosi",
-    imageUrl: "/src/assets/images/school_building_exterior_1791125440317.jpg",
+    imageUrl: "/images/building.jpg",
     description: "Keng hovli, zamonaviy me'moriy ko'rinish va o'quvchilar xavfsizligi uchun maxsus turniket tizimi."
   },
   {
@@ -395,7 +395,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "STEAM va Robototexnika ilmiy laboratoriyasi",
     category: "laboratoriya",
     categoryLabel: "Laboratoriyalar",
-    imageUrl: "/src/assets/images/school_stem_lab_1791125458486.jpg",
+    imageUrl: "/images/stem_lab.jpg",
     description: "Zamonaviy noutbuklar, interaktiv aqlli doskalar va konstruktorlik stendlari."
   },
   {
@@ -403,7 +403,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Axborot-resurs markazi va elektron kutubxona",
     category: "kutubxona",
     categoryLabel: "Kutubxona",
-    imageUrl: "/src/assets/images/school_library_hall_1791125489002.jpg",
+    imageUrl: "/images/library.jpg",
     description: "25 000 dan ortiq badiiy va ilmiy kitoblar fondi, tinch mutolaa zallari va planshet stendlari."
   },
   {
@@ -411,7 +411,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Maktab direktori qabulxonasi va metodik xona",
     category: "bino",
     categoryLabel: "Ma'muriyat",
-    imageUrl: "/src/assets/images/school_director_portrait_1791125475071.jpg",
+    imageUrl: "/images/director.jpg",
     description: "Ota-onalar va o'quvchilarni muntazam qabul qilish va pedagogik konsultatsiya markazi."
   }
 ];

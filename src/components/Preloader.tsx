@@ -27,7 +27,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onLoaded }) => {
 
     // Preload hero image and verify document load state
     const heroImg = new Image();
-    heroImg.src = '/src/assets/images/school_building_exterior_1791125440317.jpg';
+    heroImg.src = '/images/building.jpg';
 
     const checkReady = () => {
       if (document.readyState === 'complete') {

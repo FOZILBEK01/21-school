@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Maximize2, X, ChevronLeft, ChevronRight, Image as ImageIcon } from 'lucide-react';
+import { Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { GALLERY_ITEMS } from '../data/schoolData';
 import { GalleryItem } from '../types/school';
+import { SmartImage } from './SmartImage';
+import { ScrollReveal } from './ScrollReveal';
 
 export const GallerySection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
@@ -39,69 +41,72 @@ export const GallerySection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-          <div>
-            <div className="text-xs font-semibold tracking-wider text-blue-400 uppercase mb-2">
-              Virtual Sayr & Foto Galereya
+        <ScrollReveal direction="up">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold tracking-wider text-blue-400 uppercase mb-3">
+                Virtual Sayr & Foto Galereya
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                Maktabimiz Hayotidan Lavhalar
+              </h2>
+              <p className="mt-2 text-sm sm:text-base text-slate-300 max-w-xl">
+                21-maktabning zamonaviy infratuzilmasi, shinam sinfxonalari va o'quv maydonlari bilan yaqindan tanishing.
+              </p>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-              Maktabimiz Hayotidan Lavhalar
-            </h2>
-            <p className="mt-2 text-sm sm:text-base text-slate-300 max-w-xl">
-              21-maktabning zamonaviy infratuzilmasi, shinam sinfxonalari va o'quv maydonlari bilan yaqindan tanishing.
-            </p>
-          </div>
 
-          {/* Filter Pills */}
-          <div className="flex items-center gap-1.5 p-1 bg-slate-900 rounded-xl border border-slate-800 self-start md:self-auto overflow-x-auto">
-            {categories.map((cat) => (
-              <button
-                key={cat.key}
-                onClick={() => setActiveCategory(cat.key)}
-                type="button"
-                className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
-                  activeCategory === cat.key
-                    ? 'bg-blue-600 text-white'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
+            {/* Filter Pills */}
+            <div className="flex items-center gap-1.5 p-1 bg-slate-900 rounded-xl border border-slate-800 self-start md:self-auto overflow-x-auto shadow-inner">
+              {categories.map((cat) => (
+                <button
+                  key={cat.key}
+                  onClick={() => setActiveCategory(cat.key)}
+                  type="button"
+                  className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all whitespace-nowrap ${
+                    activeCategory === cat.key
+                      ? 'bg-blue-600 text-white shadow-md shadow-blue-500/30'
+                      : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredItems.map((item: GalleryItem, index: number) => (
-            <div
-              key={item.id}
-              onClick={() => handleOpenPhoto(index)}
-              role="button"
-              tabIndex={0}
-              className="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-slate-700 aspect-[4/3] cursor-pointer shadow-lg transition-all hover:-translate-y-1"
-            >
-              <img
-                src={item.imageUrl}
-                alt={item.title}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
+            <ScrollReveal key={item.id} direction="up" delay={index * 60}>
+              <div
+                onClick={() => handleOpenPhoto(index)}
+                role="button"
+                tabIndex={0}
+                className="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-blue-500/50 aspect-[4/3] cursor-pointer shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 hover:-translate-y-1.5"
+              >
+                <SmartImage
+                  src={item.imageUrl}
+                  fallbackSrc="/images/building.jpg"
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity pointer-events-none" />
 
-              <div className="absolute top-3 right-3 w-8 h-8 rounded-lg bg-slate-900/80 backdrop-blur-sm border border-slate-700/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                <Maximize2 className="w-4 h-4" />
-              </div>
+                <div className="absolute top-3 right-3 w-8 h-8 rounded-lg bg-slate-900/80 backdrop-blur-sm border border-slate-700/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity z-20">
+                  <Maximize2 className="w-4 h-4" />
+                </div>
 
-              <div className="absolute bottom-3 left-4 right-4">
-                <span className="text-[10px] font-semibold text-blue-400 uppercase tracking-wider block mb-1">
-                  {item.categoryLabel}
-                </span>
-                <h4 className="text-xs sm:text-sm font-bold text-white line-clamp-2">
-                  {item.title}
-                </h4>
+                <div className="absolute bottom-3 left-4 right-4 z-20 pointer-events-none">
+                  <span className="text-[10px] font-semibold text-blue-400 uppercase tracking-wider block mb-1">
+                    {item.categoryLabel}
+                  </span>
+                  <h4 className="text-xs sm:text-sm font-bold text-white line-clamp-2">
+                    {item.title}
+                  </h4>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
@@ -109,7 +114,7 @@ export const GallerySection: React.FC = () => {
 
       {/* Lightbox Modal */}
       {selectedPhotoIndex !== null && filteredItems[selectedPhotoIndex] && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/95 p-4 backdrop-blur-md">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/95 p-4 backdrop-blur-md animate-in fade-in duration-300">
           <button
             onClick={() => setSelectedPhotoIndex(null)}
             className="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl bg-slate-900/80 border border-slate-800 transition-colors z-50"
@@ -135,9 +140,10 @@ export const GallerySection: React.FC = () => {
           </button>
 
           <div className="max-w-4xl w-full flex flex-col items-center">
-            <div className="relative rounded-2xl overflow-hidden max-h-[75vh] w-full flex items-center justify-center bg-slate-900 border border-slate-800">
-              <img
+            <div className="relative rounded-2xl overflow-hidden max-h-[75vh] w-full flex items-center justify-center bg-slate-900 border border-slate-800 shadow-2xl">
+              <SmartImage
                 src={filteredItems[selectedPhotoIndex].imageUrl}
+                fallbackSrc="/images/building.jpg"
                 alt={filteredItems[selectedPhotoIndex].title}
                 className="max-h-[75vh] w-auto object-contain"
               />
