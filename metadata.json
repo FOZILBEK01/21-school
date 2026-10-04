@@ -1,0 +1,6 @@
+{
+  "name": "Olmaliq 21-maktab | Raqamli Vizitka va Rasmiy Portal",
+  "description": "Olmaliq shahridagi 21-sonli umumiy o'rta ta'lim maktabining zamonaviy web-vizitkasi va axborot portali.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

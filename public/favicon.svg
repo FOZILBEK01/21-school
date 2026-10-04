@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="schoolGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#4338CA"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background squircle -->
+  <rect width="128" height="128" rx="30" fill="url(#schoolGrad)"/>
+  
+  <!-- Graduation Cap (Mortarboard) -->
+  <path d="M64 24 L108 46 L64 68 L20 46 Z" fill="#FFFFFF"/>
+  <path d="M38 58 L38 80 C38 90 90 90 90 80 L90 58 L64 71 Z" fill="#CBD5E1"/>
+  
+  <!-- Golden tassel -->
+  <path d="M100 50 L106 72 C106 75 103 78 100 78 C97 78 94 75 94 72 L100 50 Z" fill="#FBBF24"/>
+  <circle cx="100" cy="50" r="3" fill="#F59E0B"/>
+  
+  <!-- School 21 Badge -->
+  <text x="64" y="116" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="-1">21</text>
+</svg>
